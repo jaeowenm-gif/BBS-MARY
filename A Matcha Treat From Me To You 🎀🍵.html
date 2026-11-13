@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A Matcha Treat From Me To You 🎀🍵</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--baby:#ffd6e3;--blush:#ffe9ef;--rose:#f4a3bb;--deep:#d94f7c;--cream:#fffaf3;--straw:#ff7da1;--matcha:#8fb86b;--matcha-d:#5d8a3e;--ink:#7a2d49;--card:#fffaf3;--bg1:#ffe9ef;--bg2:#ffd6e3;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--card:#4a2434;--ink:#ffe3ec;--bg1:#3a1b28;--bg2:#2e1520;--blush:#5a2c40}}
+:root[data-theme="dark"]{--card:#4a2434;--ink:#ffe3ec;--bg1:#3a1b28;--bg2:#2e1520;--blush:#5a2c40}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:'Quicksand',system-ui,sans-serif;font-weight:600;color:var(--ink);background:radial-gradient(circle at 20% 10%,var(--bg1),var(--bg2));overflow-x:hidden}
+#fx{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.f{position:absolute;bottom:-40px;animation:rise linear forwards;opacity:.8}
+@keyframes rise{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+main{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:28px 18px 60px}
+.screen{display:none;text-align:center}
+.screen.on{display:block;animation:pop .6s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{opacity:0;transform:scale(.92) translateY(14px)}}
+h1,h2{font-family:'Mochiy Pop One',cursive;font-weight:400;color:var(--deep);margin:.3em 0;line-height:1.2}
+h1{font-size:clamp(30px,8vw,44px)}h2{font-size:clamp(24px,6vw,32px)}
+.lead{font-size:clamp(19px,4.5vw,23px);margin:.2em 0 .6em}
+p{line-height:1.65;margin:.5em auto;max-width:440px}
+.cup{width:210px;height:230px;margin:6px auto 0;animation:bob 3.2s ease-in-out infinite;filter:drop-shadow(0 10px 14px rgba(217,79,124,.25))}
+@keyframes bob{50%{transform:translateY(-10px) rotate(-2deg)}}
+.steam{animation:steam 2.4s ease-in-out infinite;transform-origin:center}
+@keyframes steam{50%{opacity:.3;transform:translateY(-6px)}}
+.btn{font:inherit;font-weight:700;font-size:18px;color:#fff;background:linear-gradient(135deg,var(--straw),var(--deep));border:0;border-radius:999px;padding:16px 30px;margin-top:14px;cursor:pointer;box-shadow:0 8px 0 #b73a63,0 14px 22px rgba(217,79,124,.35);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(6px);box-shadow:0 2px 0 #b73a63}
+.btn.alt{background:linear-gradient(135deg,var(--matcha),var(--matcha-d));box-shadow:0 8px 0 #466b2c,0 14px 22px rgba(93,138,62,.3)}
+:focus-visible{outline:3px solid var(--matcha-d);outline-offset:3px}
+form,.card{background:var(--card);border-radius:30px;padding:24px 20px;margin-top:18px;text-align:left;box-shadow:0 14px 34px rgba(217,79,124,.18);border:3px dashed var(--rose)}
+label,.lab{display:block;font-weight:700;margin:16px 0 6px;color:var(--deep)}
+input[type=text],input[type=tel],textarea,select{width:100%;font:inherit;color:var(--ink);background:var(--blush);border:2px solid transparent;border-radius:18px;padding:13px 16px;transition:border .2s,background .2s}
+input:focus,textarea:focus,select:focus{outline:0;border-color:var(--rose)}
+textarea{min-height:84px;resize:vertical}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips input{position:absolute;opacity:0}
+.chips span{display:inline-block;padding:9px 15px;border-radius:999px;background:var(--blush);cursor:pointer;transition:all .2s;border:2px solid transparent}
+.chips input:checked+span{background:var(--straw);color:#fff;transform:scale(1.06)}
+.chips input:focus-visible+span{outline:3px solid var(--matcha-d)}
+.chips.g input:checked+span{background:var(--matcha-d)}
+.err{color:var(--deep);font-size:14px;min-height:18px;margin-top:10px}
+.sum{white-space:pre-line;background:var(--blush);border-radius:18px;padding:14px 16px;margin:14px 0;line-height:1.7}
+.note{font-size:14px;opacity:.85}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.heart{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:5;font-size:30px;background:var(--card);border:0;border-radius:50%;width:56px;height:56px;cursor:pointer;box-shadow:0 8px 20px rgba(217,79,124,.35);animation:beat 1.6s ease-in-out infinite}
+@keyframes beat{50%{transform:scale(1.14)}}
+.own{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:5;font:inherit;font-size:13px;background:var(--card);color:var(--ink);border:2px solid var(--rose);border-radius:999px;padding:8px 14px;cursor:pointer}
+.row{padding:10px 0;border-bottom:2px dashed var(--rose);line-height:1.6}.row:last-child{border:0}
+</style>
+</head>
+<body>
+<div id="fx" aria-hidden="true"></div>
+<main>
+
+<section id="s1" class="screen on">
+  <h1>HEY, PRETTY GIRL! 🎀</h1>
+  <svg class="cup" viewBox="0 0 220 240" role="img" aria-label="A cute matcha cup with a smiling face">
+    <g class="steam" fill="none" stroke="#f4a3bb" stroke-width="5" stroke-linecap="round"><path d="M85 40c-10 12 10 18 0 32"/><path d="M110 30c-10 12 10 18 0 32"/><path d="M135 40c-10 12 10 18 0 32"/></g>
+    <path d="M168 110c32-6 40 34 4 46-8 3-14 3-14 3" fill="none" stroke="#f4a3bb" stroke-width="13" stroke-linecap="round"/>
+    <path d="M45 90h120l-12 100c-2 18-16 30-34 30H91c-18 0-32-12-34-30z" fill="#fffaf3" stroke="#f4a3bb" stroke-width="5"/>
+    <path d="M50 92h110l-3 24H53z" fill="#a9cc86"/>
+    <ellipse cx="105" cy="92" rx="60" ry="11" fill="#8fb86b" stroke="#f4a3bb" stroke-width="5"/>
+    <circle cx="83" cy="150" r="6" fill="#7a2d49"/><circle cx="127" cy="150" r="6" fill="#7a2d49"/>
+    <ellipse cx="68" cy="168" rx="10" ry="6" fill="#ffa6c1"/><ellipse cx="142" cy="168" rx="10" ry="6" fill="#ffa6c1"/>
+    <path d="M95 164q10 12 20 0" fill="none" stroke="#7a2d49" stroke-width="4" stroke-linecap="round"/>
+    <path d="M105 60c-18-20-40 0-22 18l22 18 22-18c18-18-4-38-22-18z" fill="#ff7da1" transform="translate(0 -22) scale(1) "/>
+    <circle cx="90" cy="38" r="3" fill="#fff" opacity=".8"/>
+  </svg>
+  <p>I wanna make your day a little sweeter! So here’s a little treat from me to you. You deserve your favorite matcha today. 💗</p>
+  <button class="btn" data-go="s2">GET YOUR MATCHA TREAT! 🍵</button>
+</section>
+
+<section id="s2" class="screen">
+  <h2>Where Should I Send Your Little Treat? 💌</h2>
+  <p>Just leave your GCash details below so I can send you some matcha money!</p>
+  <form id="form" novalidate>
+    <label for="name">Your Name 🎀</label>
+    <input type="text" id="name" autocomplete="name" placeholder="Your pretty name">
+    <label for="num">Your GCash Number 📱</label>
+    <input type="tel" id="num" inputmode="numeric" autocomplete="tel" maxlength="13" placeholder="09XXXXXXXXX">
+    <label for="acct">Your GCash Account Name 💗</label>
+    <input type="text" id="acct" placeholder="Name registered on your GCash">
+    <p class="note" style="margin-top:16px">Double-check your number so your little matcha allowance reaches you! 💗</p>
+    <div class="err" id="err" role="alert"></div>
+    <div style="text-align:center"><button class="btn" id="go" type="submit">SEND ME MY MATCHA MONEY! 🎀</button></div>
+  </form>
+</section>
+
+<section id="s3" class="screen">
+  <h1>YAY! YOUR LITTLE TREAT IS READY! 💗</h1>
+  <p class="lead">🍵🌸🍓🦋🌷</p>
+  <p>Thank you for letting me spoil you a little today. I’ll send your matcha money to your GCash. Go get yourself your favorite drink and enjoy every sip!</p>
+  <p class="note" style="margin-top:28px">Just a little something to make you smile. You deserve it. 🎀</p>
+</section>
+
+<section id="s4" class="screen">
+  <h2>💗</h2>
+  <div class="card" style="text-align:center"><p>Well, honestly, I just wanted to make you smile today. It’s a small thing, but I hope it reminds you that someone is thinking of you. 💗</p></div>
+  <button class="btn" data-back="1" style="margin-top:22px">BACK 🎀</button>
+</section>
+
+<section id="s5" class="screen">
+  <h2>Gift details 💌</h2>
+  <p class="note">Only you can see this page.</p>
+  <div class="card" id="list">Loading…</div>
+  <button class="btn" data-back="1" style="margin-top:22px">BACK 🎀</button>
+</section>
+
+</main>
+<button id="heart" class="heart" aria-label="Open a secret message">💗</button>
+<button id="own" class="own" hidden>💌 Owner view</button>
+<script>
+(function(){
+var fx=document.getElementById('fx'),icons=['💗','🌸','✨','🦋','🍓','💕','🌷'];
+function spawn(){
+  var e=document.createElement('span');e.className='f';
+  e.textContent=icons[Math.floor(Math.random()*icons.length)];
+  e.style.left=Math.random()*100+'%';
+  e.style.fontSize=14+Math.random()*22+'px';
+  e.style.animationDuration=7+Math.random()*7+'s';
+  fx.appendChild(e);setTimeout(function(){e.remove()},15000);
+}
+setInterval(spawn,700);for(var i=0;i<8;i++)setTimeout(spawn,i*200);
+function burst(){for(var i=0;i<30;i++)setTimeout(spawn,i*50)}
+function show(id){
+  document.querySelectorAll('.screen').forEach(function(s){s.classList.toggle('on',s.id===id)});
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='s3')burst();
+}
+function val(n){var r=document.querySelector('input[name='+n+']:checked');return r?r.value:''}
+var last='s1',cur='s1';
+function go(id){last=cur;cur=id;show(id)}
+document.querySelectorAll('[data-go]').forEach(function(b){b.onclick=function(){go(b.dataset.go)}});
+document.querySelectorAll('[data-back]').forEach(function(b){b.onclick=function(){go(last==='s4'||last==='s5'?'s1':last)}});
+var db=null,me=null,owner=false;
+Promise.all([claude.use('db'),claude.use('user')]).then(function(r){
+  db=r[0];var u=r[1];
+  if(u){u.isOwner().then(function(o){owner=!!o;document.getElementById('own').hidden=!owner});u.id().then(function(i){me=i})}
+}).catch(function(){});
+document.getElementById('heart').onclick=function(){burst();go('s4')};
+document.getElementById('own').onclick=function(){
+  go('s5');var l=document.getElementById('list');
+  if(!db){l.textContent='Could not open the saved details right now.';return}
+  db.collection('claims').onSnapshot(function(q){
+    l.textContent='';
+    if(q.empty){l.textContent='Nothing yet 💗';return}
+    q.docs.forEach(function(d){var x=d.data()||{},r=document.createElement('div');r.className='row';
+      r.textContent='Name: '+x.name+'\nGCash number: '+x.number+'\nAccount name: '+x.account+'\nSent: '+(x.at||'');
+      r.style.whiteSpace='pre-line';l.appendChild(r)});
+  },function(){l.textContent='You do not have access to these details.'});
+};
+var busy=false;
+document.getElementById('form').onsubmit=function(ev){
+  ev.preventDefault();if(busy)return;
+  var n=document.getElementById('name').value.trim(),
+      num=document.getElementById('num').value.replace(/[\s-]/g,''),
+      ac=document.getElementById('acct').value.trim(),err=document.getElementById('err');
+  if(!n||!ac){err.textContent='Please fill in your name and your GCash account name. 💗';return}
+  if(!/^09\d{9}$/.test(num)){err.textContent='Your GCash number should look like 09XXXXXXXXX (11 digits, starting with 09).';return}
+  if(!db){err.textContent='Your details could not be saved right now. Please message them to me directly. 💗';return}
+  busy=true;err.textContent='';
+  var id=me||('g'+Date.now().toString(36)+Math.random().toString(36).slice(2,8));
+  db.collection('claims').doc(id).set({name:n,number:num,account:ac,at:new Date().toISOString()}).then(function(){
+    busy=false;document.getElementById('form').reset();go('s3');
+  }).catch(function(){busy=false;err.textContent='Oops, that did not save. Please try again in a moment. 💗'});
+};
+})();
+</script>
+</body>
+</html>
